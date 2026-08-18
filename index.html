@@ -57,11 +57,12 @@ h2 {
 p + p { margin-top: 1.2em; }
 
 /* ヒーロー */
-.hero { background: var(--navy-deep); color: var(--white); padding: 88px 0 72px; }
-.hero .eyebrow {
-  display: inline-block; border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: 0.18em; margin-bottom: 28px;
-}
+.hero { background: var(--navy-deep); color: var(--white); padding: 0 0 40px; overflow: hidden; }
+.hero-media { width: 100%; aspect-ratio: 1200 / 630; overflow: hidden; }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero .inner { padding-top: 36px; }
+/* h1・eyebrowは画像内にすでに文字があるため非表示（見出し構造としては残す） */
+.hero .eyebrow, .hero h1, .hero .rule { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
 .hero h1 {
   font-family: 'Shippori Mincho', serif; font-weight: 600;
   font-size: 30px; line-height: 1.7; margin-bottom: 10px;
@@ -188,8 +189,14 @@ p + p { margin-top: 1.2em; }
 
 /* 講師 */
 .profile { background: var(--white); border-radius: 16px; padding: 30px 26px; box-shadow: 0 2px 10px rgba(30,58,95,0.06); }
+.profile-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.profile-head img {
+  width: 84px; height: 84px; flex: none; border-radius: 50%;
+  object-fit: cover; object-position: 50% 20%;
+  border: 3px solid var(--terracotta-soft);
+}
 .profile .name { font-family: 'Shippori Mincho', serif; font-size: 21px; color: var(--navy); }
-.profile .role { font-size: 12.5px; color: var(--terracotta); font-weight: 700; letter-spacing: 0.12em; margin-bottom: 14px; }
+.profile .role { font-size: 12.5px; color: var(--terracotta); font-weight: 700; letter-spacing: 0.12em; margin-top: 2px; }
 .profile p { font-size: 14.5px; }
 
 /* モニター */
@@ -251,11 +258,14 @@ footer a { color: #9fb0c4; }
 
 <!-- ヒーロー -->
 <header class="hero">
+  <div class="hero-media"><img src="ogp.jpg" alt="ゆるがない私を手に入れる｜3ヶ月個別プログラム"></div>
   <div class="inner">
     <span class="eyebrow">3ヶ月・完全個別プログラム</span>
     <h1><span class="sub">しなやかに生きるための3ヶ月個別プログラム</span>ゆるがない私を<br>手に入れる</h1>
     <div class="rule"></div>
     <p class="lead">何があっても、自分に戻れる。<br>あなたのトリセツ、パパのトリセツ、お子さんのトリセツ。3冊のトリセツと「家族の軸マップ」を、公認心理師さっちゃんと一緒に3ヶ月で完成させます。</p>
+    <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener" style="margin-top:26px;">今すぐ個別相談を予約する（無料）</a>
+    <p class="cta-note">まずは60分の無料相談から。いきなりのお申し込みではありません</p>
   </div>
 </header>
 
@@ -358,7 +368,7 @@ footer a { color: #9fb0c4; }
   <div class="inner reveal">
     <div class="cta-mid">
       <p class="lead-in">「わたしの場合はどうなるんだろう」と思ったら、<br>まずは無料の個別相談でご相談ください。</p>
-      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する（無料）</a>
+      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">今すぐ個別相談を予約する（無料）</a>
       <p class="sub">その場で命式を一緒に見ながら、合うかどうかを確かめられます</p>
     </div>
   </div>
@@ -403,8 +413,13 @@ footer a { color: #9fb0c4; }
   <div class="inner reveal">
     <div class="chapter">伴走する人</div>
     <div class="profile">
-      <div class="name serif">さっちゃん</div>
-      <div class="role">公認心理師|3児の母</div>
+      <div class="profile-head">
+        <img src="satchan.jpg" alt="さっちゃん">
+        <div>
+          <div class="name serif">さっちゃん</div>
+          <div class="role">公認心理師|3児の母</div>
+        </div>
+      </div>
       <p>心の国家資格である公認心理師。個別セッション350回以上、特別支援教育の現場で10年以上、子どもと家族に向き合ってきました。心理学と四柱推命をかけ合わせた「あなたのトリセツ作り」が専門です。</p>
       <p>私自身も3人の子どもを育てるママです。正しい方法を探し続けるより、自分に合ったがんばり方を知るほうが、ずっと早くラクになれる。それを、あなたの毎日で一緒に確かめていきます。</p>
     </div>
@@ -432,7 +447,7 @@ footer a { color: #9fb0c4; }
   <div class="inner reveal">
     <div class="cta-mid">
       <p class="lead-in">モニターは<strong style="color:#fff;">5名</strong>です。<br>気になる方は、まず個別相談でお話ししましょう。</p>
-      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する（無料）</a>
+      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">今すぐ個別相談を予約する（無料）</a>
       <p class="sub">受講費は個別相談でご案内します。無理なおすすめは一切しません</p>
     </div>
   </div>
@@ -476,7 +491,7 @@ footer a { color: #9fb0c4; }
   <div class="inner reveal">
     <h2 class="serif">まずは、無料の個別相談から。</h2>
     <p class="msg">いきなりお申し込みいただく講座ではありません。<br>まずは個別相談で、あなたの命式を一緒に見ながら、<br>「私の場合はどうか」を確かめてください。<br>合うかどうかは、それから決めれば大丈夫です。</p>
-    <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する(無料)</a>
+    <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">今すぐ個別相談を予約する（無料）</a>
     <p class="cta-note" style="color:#b7c3d3;">カレンダーから空いている日時を選ぶだけ。<br>ページは一部英語表記ですが、日付を選んで入力するだけなので大丈夫です！</p>
     <p class="sign">無理しすぎず、いきましょう。|公認心理師 さっちゃん</p>
   </div>
