@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ゆるがない私を手に入れる|しなやかに生きるための3ヶ月個別プログラム|あんだんて</title>
+<meta name="description" content="エニアグラム×四柱推命×行動のしくみで、何があっても自分に戻れる私と、家族のトリセツを3ヶ月で手に入れる個別プログラム。公認心理師さっちゃんが伴走します。">
+
+<!-- ▼▼ OGP（シェアしたときのカード表示）▼▼
+     og:image は必ず「絶対URL」。相対パスだとLINEが読めません。
+     公開するパスが /jiku-program/ 以外になるなら、下の2行を手で直すこと。 -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ゆるがない私を手に入れる ｜ 3ヶ月個別プログラム">
+<meta property="og:description" content="エニアグラム×四柱推命×行動のしくみ。何があっても自分に戻れる私と、家族のトリセツを3ヶ月で。正式リリース前のモニター5名募集中。">
+<meta property="og:url" content="https://satchan-cocoro.github.io/jiku-program/">
+<meta property="og:image" content="https://satchan-cocoro.github.io/jiku-program/ogp.png">
+<meta property="og:site_name" content="あんだんて">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1e3a5f;
+  --navy-deep: #14273f;
+  --terracotta: #c96f4a;
+  --terracotta-soft: #f3e2d8;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --text: #2b2b2b;
+  --gray: #7c7c7c;
+  --line-soft: #e5ddd2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  color: var(--text); background: var(--cream);
+  line-height: 1.9; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.serif { font-family: 'Shippori Mincho', 'Hiragino Mincho ProN', serif; }
+.inner { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+section { padding: 72px 0; }
+
+/* 見出しの共通型: トリセツの章ラベル */
+.chapter {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
+  color: var(--terracotta); margin-bottom: 18px;
+}
+.chapter::after { content: ""; flex: 1; height: 1px; background: var(--line-soft); }
+h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 26px; font-weight: 600; line-height: 1.6;
+  color: var(--navy); margin-bottom: 28px;
+}
+p + p { margin-top: 1.2em; }
+
+/* ヒーロー */
+.hero { background: var(--navy-deep); color: var(--white); padding: 88px 0 72px; }
+.hero .eyebrow {
+  display: inline-block; border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px; padding: 6px 18px; font-size: 12px; letter-spacing: 0.18em; margin-bottom: 28px;
+}
+.hero h1 {
+  font-family: 'Shippori Mincho', serif; font-weight: 600;
+  font-size: 30px; line-height: 1.7; margin-bottom: 10px;
+}
+.hero h1 .sub { display: block; font-size: 17px; letter-spacing: 0.14em; color: #cdb9ad; margin-bottom: 12px; }
+.hero .lead { color: #dbe4ef; font-size: 15px; margin-top: 22px; }
+.hero .rule { width: 64px; height: 3px; background: var(--terracotta); border-radius: 2px; margin: 26px 0; }
+
+/* CTAボタン */
+.cta-btn {
+  display: block; text-align: center; text-decoration: none;
+  background: var(--terracotta); color: var(--white);
+  font-weight: 700; font-size: 17px; letter-spacing: 0.06em;
+  padding: 18px 24px; border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(201,111,74,0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(201,111,74,0.4); }
+.cta-btn:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.cta-note { text-align: center; font-size: 12.5px; color: var(--gray); margin-top: 12px; }
+.hero .cta-note { color: #b7c3d3; }
+
+/* 共感チェック */
+.check-list { list-style: none; margin-top: 8px; }
+.check-list li {
+  background: var(--white); border-radius: 12px;
+  padding: 16px 18px 16px 50px; margin-bottom: 12px;
+  position: relative; font-size: 15px; line-height: 1.7;
+  box-shadow: 0 2px 8px rgba(30,58,95,0.06);
+}
+.check-list li::before {
+  content: "✓"; position: absolute; left: 18px; top: 15px;
+  color: var(--terracotta); font-weight: 700; font-size: 17px;
+}
+
+/* リフレーミング帯 */
+.band { background: var(--navy); color: var(--white); text-align: center; padding: 64px 0; }
+.band p.big {
+  font-family: 'Shippori Mincho', serif; font-size: 22px; line-height: 2.1; font-weight: 600;
+}
+.band p.small { color: #cfdae8; font-size: 14px; margin-top: 20px; }
+.band em { font-style: normal; color: #eec5b0; }
+
+/* 約束カード */
+.promise { counter-reset: promise; }
+.promise-card {
+  background: var(--white); border-radius: 14px; padding: 26px 24px;
+  margin-bottom: 16px; box-shadow: 0 2px 10px rgba(30,58,95,0.06);
+  counter-increment: promise; position: relative;
+}
+.promise-card h3 {
+  font-family: 'Shippori Mincho', serif; font-size: 18px; color: var(--navy);
+  margin-bottom: 8px; padding-left: 40px; position: relative; line-height: 1.6;
+}
+.promise-card h3::before {
+  content: counter(promise); position: absolute; left: 0; top: 1px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--terracotta); color: var(--white);
+  font-family: 'Noto Sans JP', sans-serif; font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.promise-card p { font-size: 14.5px; }
+
+/* 3つの道具 */
+.tool { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid var(--line-soft); }
+.tool:last-of-type { border-bottom: none; }
+.tool-icon {
+  flex: 0 0 52px; height: 52px; border-radius: 50%;
+  background: var(--terracotta-soft); color: var(--terracotta);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Shippori Mincho', serif; font-size: 20px; font-weight: 700;
+}
+.tool h3 { font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+.tool .tool-sub { font-size: 12px; color: var(--gray); letter-spacing: 0.08em; }
+.tool p { font-size: 14px; margin-top: 6px; }
+
+/* 6回の流れ */
+.flow { list-style: none; position: relative; margin-top: 8px; }
+.flow::before { content: ""; position: absolute; left: 17px; top: 8px; bottom: 8px; width: 2px; background: var(--line-soft); }
+.flow li { position: relative; padding: 0 0 30px 56px; }
+.flow li:last-child { padding-bottom: 0; }
+.flow .dot {
+  position: absolute; left: 0; top: 0;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--navy); color: var(--white);
+  font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.flow h3 { font-family: 'Shippori Mincho', serif; font-size: 17px; color: var(--navy); line-height: 1.5; padding-top: 4px; }
+.flow .tag {
+  display: inline-block; background: var(--terracotta-soft); color: var(--terracotta);
+  font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 2px 12px; margin: 6px 0 4px;
+}
+.flow p { font-size: 14px; }
+
+/* トリセツ3冊(シグネチャー) */
+.books { display: flex; justify-content: center; gap: 0; margin: 34px 0 26px; }
+.book {
+  width: 118px; height: 158px; border-radius: 6px 12px 12px 6px;
+  background: var(--navy); color: var(--white);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+  box-shadow: 6px 8px 18px rgba(20,39,63,0.25);
+  border-left: 6px solid var(--terracotta);
+  font-family: 'Shippori Mincho', serif;
+}
+.book:nth-child(2) { background: var(--terracotta); border-left-color: var(--navy); transform: translateY(-14px); z-index: 2; margin: 0 -14px; }
+.book:nth-child(3) { background: #4a6b8f; }
+.book .who { font-size: 12px; letter-spacing: 0.2em; opacity: 0.85; }
+.book .title { font-size: 16px; font-weight: 600; letter-spacing: 0.12em; writing-mode: vertical-rl; }
+.deliv-note { text-align: center; font-size: 14px; }
+.map-card {
+  margin-top: 22px; background: var(--white); border: 1.5px dashed var(--terracotta);
+  border-radius: 14px; padding: 20px 22px; text-align: center;
+}
+.map-card h3 { font-family: 'Shippori Mincho', serif; color: var(--navy); font-size: 17px; margin-bottom: 6px; }
+.map-card p { font-size: 14px; }
+
+/* サポート */
+.support-box { background: var(--white); border-radius: 14px; padding: 26px 24px; box-shadow: 0 2px 10px rgba(30,58,95,0.06); }
+.support-box ul { list-style: none; margin-top: 10px; }
+.support-box li { padding: 8px 0 8px 28px; position: relative; font-size: 14.5px; border-bottom: 1px dotted var(--line-soft); }
+.support-box li:last-child { border-bottom: none; }
+.support-box li::before { content: "・"; position: absolute; left: 8px; color: var(--terracotta); font-weight: 700; }
+
+/* 講師 */
+.profile { background: var(--white); border-radius: 16px; padding: 30px 26px; box-shadow: 0 2px 10px rgba(30,58,95,0.06); }
+.profile .name { font-family: 'Shippori Mincho', serif; font-size: 21px; color: var(--navy); }
+.profile .role { font-size: 12.5px; color: var(--terracotta); font-weight: 700; letter-spacing: 0.12em; margin-bottom: 14px; }
+.profile p { font-size: 14.5px; }
+
+/* モニター */
+.monitor { background: var(--terracotta-soft); }
+.monitor-box { background: var(--white); border-radius: 14px; padding: 26px 24px; }
+.monitor-box ul { list-style: none; margin: 14px 0; }
+.monitor-box li { padding: 7px 0 7px 26px; position: relative; font-size: 14.5px; }
+.monitor-box li::before { content: "○"; position: absolute; left: 2px; color: var(--terracotta); font-weight: 700; font-size: 13px; top: 9px; }
+.monitor-note { font-size: 13px; color: var(--gray); margin-top: 14px; }
+
+/* 中間CTA */
+.cta-mid { background: var(--navy); border-radius: 16px; padding: 30px 24px; text-align: center; margin: 0 auto; max-width: 560px; }
+.cta-mid p.lead-in { color: #dbe4ef; font-size: 15px; line-height: 1.9; margin-bottom: 18px; }
+.cta-mid .cta-btn { display: inline-block; margin: 0; }
+.cta-mid p.sub { color: #b7c3d3; font-size: 12.5px; margin-top: 12px; line-height: 1.7; }
+
+/* FAQ */
+details {
+  background: var(--white); border-radius: 12px; margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(30,58,95,0.06); overflow: hidden;
+}
+summary {
+  list-style: none; cursor: pointer; padding: 18px 46px 18px 20px;
+  font-weight: 700; font-size: 15px; color: var(--navy); position: relative; line-height: 1.6;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "+"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  color: var(--terracotta); font-size: 22px; font-weight: 400;
+}
+details[open] summary::after { content: "−"; }
+details .a { padding: 0 20px 20px; font-size: 14.5px; }
+
+/* クロージング */
+.closing { background: var(--navy-deep); color: var(--white); text-align: center; padding: 80px 0; }
+.closing h2 { color: var(--white); }
+.closing p.msg { color: #dbe4ef; font-size: 15px; margin-bottom: 34px; }
+.closing .sign { font-family: 'Shippori Mincho', serif; font-size: 14px; color: #cdb9ad; margin-top: 40px; letter-spacing: 0.1em; }
+
+footer { background: #0e1a2b; color: #9fb0c4; text-align: center; font-size: 12px; padding: 28px 24px; }
+footer a { color: #9fb0c4; }
+
+/* ふわっと表示 */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .cta-btn { transition: none; }
+}
+@media (min-width: 720px) {
+  .hero h1 { font-size: 38px; }
+  h2 { font-size: 30px; }
+  .book { width: 138px; height: 184px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<header class="hero">
+  <div class="inner">
+    <span class="eyebrow">3ヶ月・完全個別プログラム</span>
+    <h1><span class="sub">しなやかに生きるための3ヶ月個別プログラム</span>ゆるがない私を<br>手に入れる</h1>
+    <div class="rule"></div>
+    <p class="lead">何があっても、自分に戻れる。<br>あなたのトリセツ、パパのトリセツ、お子さんのトリセツ。3冊のトリセツと「家族の軸マップ」を、公認心理師さっちゃんと一緒に3ヶ月で完成させます。</p>
+  </div>
+</header>
+
+<!-- 共感 -->
+<section>
+  <div class="inner reveal">
+    <div class="chapter">こんな毎日ではありませんか</div>
+    <h2>がんばっているのに、<br>うまくいかない。</h2>
+    <ul class="check-list">
+      <li>育児書の通りにやっているのに、子育てに自信が持てない</li>
+      <li>気づけば子どもを怒ってばかりで、夜になって自分を責めてしまう</li>
+      <li>夫に伝えたいことが、いつもうまく伝わらない</li>
+      <li>本や講座で学んでも、数日たつと元の毎日に戻ってしまう</li>
+      <li>「私はこれでいい」と思える日が、ほとんどない</li>
+    </ul>
+  </div>
+</section>
+
+<!-- リフレーミング帯 -->
+<div class="band">
+  <div class="inner reveal">
+    <p class="big">それは、努力不足でも<br>性格の悪さでも、ありません。</p>
+    <p class="small">合わない「がんばり方」を、まじめに続けてきただけ。<br>がんばりすぎは、弱さではありません。<em>背負う力が強い</em>ということです。<br>必要なのは、もっとがんばることではなく、<em>自分に合ったがんばり方を知ること</em>です。</p>
+  </div>
+</div>
+
+<!-- 3つの約束 -->
+<section>
+  <div class="inner reveal">
+    <div class="chapter">このプログラムの約束</div>
+    <h2>3ヶ月後の、あなたの姿。</h2>
+    <div class="promise">
+      <div class="promise-card">
+        <h3>子育てに、自信が持てる</h3>
+        <p>お子さんの資質に合った声かけの型が手に入り、「私の関わり方はこれでいい」と思える根拠ができます。</p>
+      </div>
+      <div class="promise-card">
+        <h3>自分の可能性を信じて、一歩踏み出せる</h3>
+        <p>「私はダメ」ではなく「私はこう扱えばうまくいく」へ。自分の資質と心のクセを知ると、見える景色が変わります。</p>
+      </div>
+      <div class="promise-card">
+        <h3>夫婦で、コミュニケーションがとれる</h3>
+        <p>パパのトリセツをもとに「伝わる頼み方」を実際に試し、すれ違いを仕組みからほどいていきます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3つの道具 -->
+<section style="padding-top:0;">
+  <div class="inner reveal">
+    <div class="chapter">3つの道具を使います</div>
+    <h2>「知る」と「変える」を、<br>両方そろえる。</h2>
+    <div class="tool">
+      <div class="tool-icon">心</div>
+      <div>
+        <h3>心のクセの地図</h3>
+        <div class="tool-sub">性格タイプ論(エニアグラム)がもとになっています</div>
+        <p>なぜ私はいつも「こう感じて、こう動いて」しまうのか。心のクセを地図にします。</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon">命</div>
+      <div>
+        <h3>生まれ持った資質のカルテ</h3>
+        <div class="tool-sub">四柱推命の命式を読み解きます</div>
+        <p>あなたは何を持って生まれてきたのか。生年月日から、資質と力の使いどころを見ます。</p>
+      </div>
+    </div>
+    <div class="tool">
+      <div class="tool-icon">行</div>
+      <div>
+        <h3>行動のしくみの取扱説明</h3>
+        <div class="tool-sub">心理学の行動分析がもとになっています</div>
+        <p>じゃあ明日から何をどう変えるか。性格を変えるのではなく、きっかけと環境を小さく変えます。</p>
+      </div>
+    </div>
+    <p style="font-size:14px; margin-top:22px;">「知って終わり」にしないために、毎回のセッションには必ず小さな行動実験がついています。学んだのに変われなかった経験がある方にこそ、受けてほしい設計です。</p>
+  </div>
+</section>
+
+<!-- 6回の流れ -->
+<section style="background:var(--white);">
+  <div class="inner reveal">
+    <div class="chapter">3ヶ月の流れ|90分×6回</div>
+    <h2>自分の軸 → 夫婦 → 子育て。<br>この順番に、意味があります。</h2>
+    <ol class="flow">
+      <li><span class="dot">1</span><h3>現在地と「心のクセ」を知る</h3><p>悩みの言語化と、あなたの心のクセの発見から始めます。</p></li>
+      <li><span class="dot">2</span><h3>生まれ持った資質を知る</h3><p>命式を一緒に読み、「だから私はこうだったんだ」をつくります。</p></li>
+      <li><span class="dot">3</span><h3>自分の整え方を身につける</h3><span class="tag">ママのトリセツ 完成</span><p>イライラや自己嫌悪を仕組みからほどく、自分専用の整え方を設計します。</p></li>
+      <li><span class="dot">4</span><h3>パパのトリセツを作る</h3><span class="tag">パパのトリセツ 完成</span><p>夫を変えるのではなく、伝わる形に翻訳する。夫婦の橋をかけ直します。</p></li>
+      <li><span class="dot">5</span><h3>子どものトリセツを作る</h3><span class="tag">子どものトリセツ 完成</span><p>その子の資質に合う声かけへ。叱る回数を減らして、届く言葉を増やします。</p></li>
+      <li><span class="dot">6</span><h3>家族の軸マップを完成させる</h3><span class="tag">家族の軸マップ 完成</span><p>家族全員の資質を1枚に。3ヶ月の変化を確かめて、次の一歩を決めます。</p></li>
+    </ol>
+    <p style="font-size:13.5px; color:var(--gray); margin-top:26px;">ペースは隔週(約3ヶ月)と毎週(約6週間)から選べます。毎週ペースの場合も、サポート期間は変わらず3ヶ月。後半はまるごと実践フォロー期間になります。</p>
+  </div>
+</section>
+
+<section>
+  <div class="inner reveal">
+    <div class="cta-mid">
+      <p class="lead-in">「わたしの場合はどうなるんだろう」と思ったら、<br>まずは無料の個別相談でご相談ください。</p>
+      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する（無料）</a>
+      <p class="sub">その場で命式を一緒に見ながら、合うかどうかを確かめられます</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 手元に残るもの -->
+<section>
+  <div class="inner reveal">
+    <div class="chapter">手元に残るもの</div>
+    <h2>講座が終わっても、<br>帰ってこられる場所。</h2>
+    <div class="books" aria-hidden="true">
+      <div class="book"><span class="who">P A P A</span><span class="title">パパのトリセツ</span></div>
+      <div class="book"><span class="who">M A M A</span><span class="title">ママのトリセツ</span></div>
+      <div class="book"><span class="who">K I D S</span><span class="title">子どものトリセツ</span></div>
+    </div>
+    <p class="deliv-note">あなた・パパ・お子さんの資質と扱い方をまとめた、<br>世界に1組だけの3冊をお渡しします。</p>
+    <div class="map-card">
+      <h3>+ 家族の軸マップ</h3>
+      <p>家族全員の資質を1枚に並べた「わが家の取扱説明」。迷ったとき、いつでもここに戻れます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- サポート -->
+<section style="padding-top:0;">
+  <div class="inner reveal">
+    <div class="chapter">期間中のサポート</div>
+    <h2>3ヶ月間、ひとりにしません。</h2>
+    <div class="support-box">
+      <ul>
+        <li>初回から3ヶ月間、LINEでいつでも質問できます(回数の制限はありません)</li>
+        <li>やってみて、うまくいかなかったことこそ聞かせてください。それが次のセッションの材料になります</li>
+        <li>各回のワークシートと、セッションの録画(ご希望の方)をお渡しします</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 講師 -->
+<section style="background:var(--white);">
+  <div class="inner reveal">
+    <div class="chapter">伴走する人</div>
+    <div class="profile">
+      <div class="name serif">さっちゃん</div>
+      <div class="role">公認心理師|3児の母</div>
+      <p>心の国家資格である公認心理師。個別セッション350回以上、特別支援教育の現場で10年以上、子どもと家族に向き合ってきました。心理学と四柱推命をかけ合わせた「あなたのトリセツ作り」が専門です。</p>
+      <p>私自身も3人の子どもを育てるママです。正しい方法を探し続けるより、自分に合ったがんばり方を知るほうが、ずっと早くラクになれる。それを、あなたの毎日で一緒に確かめていきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- モニター募集 -->
+<section class="monitor">
+  <div class="inner reveal">
+    <div class="chapter">モニター募集について</div>
+    <h2>正式リリース前に、<br>一緒に講座を育ててくれる方へ。</h2>
+    <div class="monitor-box">
+      <p style="font-size:14.5px;">このプログラムは現在、正式リリース前のモニター期間です。モニター価格でご受講いただくかわりに、次の2つをお願いしています。</p>
+      <ul>
+        <li>受講後のご感想(アンケート)の掲載</li>
+        <li>感想インタビュー動画へのご出演(顔出しなしでOK。音声のみも選べます)</li>
+      </ul>
+      <p style="font-size:14.5px;">募集は5名です。掲載前には必ず内容をご確認いただきますので、安心してください。</p>
+      <p class="monitor-note">受講費とお支払い方法は、個別相談のなかで直接ご案内しています。相談にお越しいただいても、無理なおすすめは一切しません。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="inner reveal">
+    <div class="cta-mid">
+      <p class="lead-in">モニターは<strong style="color:#fff;">5名</strong>です。<br>気になる方は、まず個別相談でお話ししましょう。</p>
+      <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する（無料）</a>
+      <p class="sub">受講費は個別相談でご案内します。無理なおすすめは一切しません</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section>
+  <div class="inner reveal">
+    <div class="chapter">よくあるご質問</div>
+    <h2>気になることに、<br>お答えします。</h2>
+    <details>
+      <summary>夫や子どもの協力(同席)は必要ですか?</summary>
+      <div class="a">必要ありません。セッションはあなたおひとりで受けられます。パパとお子さんのトリセツは、生年月日と、あなたから見た日頃の様子をもとに一緒に作っていきます。</div>
+    </details>
+    <details>
+      <summary>占いも心理学も、まったくの初心者です。</summary>
+      <div class="a">大丈夫です。専門用語は使わず、日常の言葉でお伝えします。「知識を学ぶ講座」ではなく「あなたのトリセツを一緒に作る時間」なので、予習もいりません。</div>
+    </details>
+    <details>
+      <summary>子どもが複数いる場合はどうなりますか?</summary>
+      <div class="a">プログラム内では、まずおひとりのお子さんのトリセツをじっくり作ります。2人目以降のお子さんの分は、追加セッションで1名ずつお作りできます。詳しくは個別相談でご案内しますね。</div>
+    </details>
+    <details>
+      <summary>日中は仕事や育児で時間が取れません。</summary>
+      <div class="a">セッションはオンラインで、日程はご相談のうえ決めていきます。お子さんが同じ空間にいても大丈夫。急な体調不良などの振替にも対応しています。</div>
+    </details>
+    <details>
+      <summary>3ヶ月で本当に変われますか?</summary>
+      <div class="a">変化の出方には個人差があり、効果をお約束することはできません。そのかわり、毎回のセッションで「小さな行動実験」を一緒に設計し、うまくいかない場合も含めてLINEで3ヶ月間伴走します。知って終わりにしない仕組みそのものが、このプログラムの答えです。</div>
+    </details>
+    <details>
+      <summary>通院中でも受けられますか?</summary>
+      <div class="a">このプログラムは医療行為や治療ではなく、自己理解と家族理解のための教育プログラムです。通院中の方は、主治医にご相談のうえお申し込みください。状況によっては、より適切な相談先をご案内する場合があります。</div>
+    </details>
+  </div>
+</section>
+
+<!-- クロージング -->
+<div class="closing">
+  <div class="inner reveal">
+    <h2 class="serif">まずは、無料の個別相談から。</h2>
+    <p class="msg">いきなりお申し込みいただく講座ではありません。<br>まずは個別相談で、あなたの命式を一緒に見ながら、<br>「私の場合はどうか」を確かめてください。<br>合うかどうかは、それから決めれば大丈夫です。</p>
+    <a class="cta-btn" href="https://calendly.com/andante-no-satchan/free-soudan" target="_blank" rel="noopener">LINEで個別相談を予約する(無料)</a>
+    <p class="cta-note" style="color:#b7c3d3;">カレンダーから空いている日時を選ぶだけ。<br>ページは一部英語表記ですが、日付を選んで入力するだけなので大丈夫です！</p>
+    <p class="sign">無理しすぎず、いきましょう。|公認心理師 さっちゃん</p>
+  </div>
+</div>
+
+<footer>
+  <p>あんだんて|ゆるがない私を手に入れる 〜しなやかに生きるための3ヶ月個別プログラム〜</p>
+  <p style="margin-top:6px;"><a href="legal.html" style="color:inherit;">特定商取引法に基づく表記</a></p>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('on'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('on'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+</body>
+</html>
