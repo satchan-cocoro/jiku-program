@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>今週の記録｜ゆるがない私を手に入れる</title>
+<style>
+:root{--cream:#FDF8F2;--rose:#E8956D;--deep:#C96A45;--ink:#2D2D2D;--mid:#7A7168;
+ --lt:#F0EBE3;--rule:#E0D6C9;--gold:#E9B44C;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+ color:var(--ink);background:var(--cream);font-size:16px;line-height:1.6;
+ padding:0 16px calc(28px + env(safe-area-inset-bottom));}
+.wrap{max-width:520px;margin:0 auto;}
+
+header{text-align:center;padding:20px 0 14px;}
+header .brand{font-size:11px;color:var(--mid);letter-spacing:.14em;}
+header h1{font-family:"Hiragino Mincho ProN",serif;font-size:23px;margin-top:5px;}
+
+.card{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:16px;margin-bottom:14px;}
+.card h2{font-size:15px;color:var(--deep);margin-bottom:8px;}
+.hint{font-size:13px;color:var(--mid);line-height:1.55;}
+
+input[type=text],input[type=date],input[type=number],textarea{
+ font-family:inherit;font-size:16px;color:var(--ink);background:#fff;
+ border:1px solid var(--rule);border-radius:9px;padding:11px 12px;width:100%;}
+input:focus,textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(232,149,109,.2);}
+.todo{font-size:18px;font-weight:700;}
+.row{display:flex;align-items:center;gap:10px;margin-top:10px;}
+.row label{font-size:13px;color:var(--mid);white-space:nowrap;}
+.row input[type=number]{width:72px;text-align:center;font-weight:700;}
+.row input[type=date]{flex:1;}
+
+/* 進捗 */
+.prog{background:#fff;border:2px solid var(--rose);border-radius:14px;padding:16px;margin-bottom:14px;text-align:center;}
+.dots{display:flex;justify-content:center;gap:7px;margin-bottom:9px;}
+.dots span{width:26px;height:26px;border-radius:50%;border:2px dashed var(--rule);
+ display:flex;align-items:center;justify-content:center;font-size:14px;color:#C9BFB2;}
+.dots span.on{background:var(--rose);border:2px solid var(--deep);color:#fff;}
+.count{font-size:15px;font-weight:700;}
+.count b{font-size:26px;color:var(--deep);}
+.msg{font-size:14px;color:var(--deep);margin-top:6px;font-weight:700;min-height:1.5em;}
+.prog.clear{border-color:var(--gold);background:#FFFBF0;}
+.prog.clear .msg{color:#B8860B;}
+
+/* 日ごと */
+.day{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:12px 14px;margin-bottom:10px;
+ display:flex;align-items:flex-start;gap:12px;}
+.day.done{border-color:var(--rose);background:#FFFCF8;}
+.mark{flex:0 0 auto;width:60px;height:60px;border-radius:50%;border:2px dashed var(--rule);
+ background:#fff;font-size:26px;color:#CFC5B8;cursor:pointer;
+ display:flex;align-items:center;justify-content:center;transition:transform .12s ease;}
+.mark.on{background:var(--rose);border:2px solid var(--deep);color:#fff;}
+.mark:active{transform:scale(.9);}
+.dinfo{flex:1;min-width:0;}
+.dlabel{font-size:13px;color:var(--mid);margin-bottom:5px;}
+.day.done .dlabel{color:var(--deep);font-weight:700;}
+.dinfo input{font-size:15px;padding:8px 10px;}
+
+/* ボタン */
+.btn{display:block;width:100%;font-family:inherit;font-size:16px;font-weight:700;
+ padding:15px;border-radius:11px;border:none;background:var(--rose);color:#fff;cursor:pointer;margin-top:6px;}
+.btn:active{background:var(--deep);}
+.btn.sub{background:#fff;color:var(--ink);border:1px solid var(--rule);font-weight:400;font-size:14px;padding:12px;}
+
+.note{background:#FFF6EF;border-left:4px solid var(--rose);border-radius:0 10px 10px 0;
+ padding:12px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;}
+.note b{font-weight:700;}
+
+#out{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:16px;z-index:50;}
+#out.on{display:flex;}
+#out .box{background:#fff;border-radius:14px;padding:16px;width:100%;max-width:520px;max-height:86vh;display:flex;flex-direction:column;gap:10px;}
+#out h3{font-size:16px;color:var(--deep);}
+#out textarea{flex:1;min-height:230px;font-size:14px;line-height:1.7;}
+
+.goal{background:#fff;border:2px solid var(--rose);border-radius:14px;
+ padding:16px;margin:18px 0 14px;}
+.goal h2{font-size:15px;color:var(--deep);margin-bottom:4px;}
+.goal .lead{font-size:13px;color:var(--mid);margin-bottom:10px;line-height:1.55;}
+.goal textarea{width:100%;min-height:74px;font-size:16px;line-height:1.7;resize:vertical;}
+.shot{margin-top:12px;}
+.shot img{width:100%;border-radius:11px;display:block;}
+.pick{display:block;width:100%;border:2px dashed var(--rule);border-radius:11px;
+ background:var(--cream);color:var(--mid);font-family:inherit;font-size:15px;
+ padding:26px 14px;text-align:center;cursor:pointer;line-height:1.6;}
+.pick:active{border-color:var(--rose);}
+.shotbtns{display:flex;gap:8px;margin-top:8px;}
+.shotbtns button{flex:1;font-family:inherit;font-size:13px;padding:10px;border-radius:9px;
+ border:1px solid var(--rule);background:#fff;color:var(--mid);cursor:pointer;}
+.tip{background:#FFF6EF;border:1px solid var(--rose);border-radius:12px;
+ padding:13px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;position:relative;}
+.tip b{font-weight:700;}
+.tip .x{position:absolute;top:6px;right:8px;font-size:20px;color:var(--mid);
+ background:none;border:none;cursor:pointer;padding:4px 8px;line-height:1;}
+.warn{background:#FDECEC;border:2px solid #C0574B;color:#8E3A31;border-radius:12px;
+ padding:13px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;font-weight:700;}
+.saved{text-align:center;font-size:12px;color:var(--mid);margin:-4px 0 12px;}
+footer{text-align:center;font-size:12px;color:var(--mid);padding:14px 0 4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="brand">ゆるがない私を手に入れる</div>
+  <h1>今週の記録</h1>
+</header>
+
+<div id="warn" class="warn" style="display:none">
+  ⚠️ このブラウザでは記録が保存できません。<br>
+  <b>Safari（またはChrome）で開き直して</b>ください。
+</div>
+
+<div id="tip" class="tip" style="display:none">
+  <button class="x" onclick="closeTip()" aria-label="閉じる">×</button>
+  <b>いちばん最初に、これだけ！</b><br>
+  下の <b>共有ボタン</b> → <b>「ホーム画面に追加」</b> をしておいてください。<br>
+  <span style="font-size:13px;color:var(--mid)">毎回そこから開けば、記録がちゃんと続きます。
+  ちがうアプリから開くと、別の記録になってしまうんです💦</span>
+</div>
+
+<div class="note">
+  <b>やることは、1つだけ。</b><br>
+  できた日に、大きい丸を<b>タップするだけ</b>です。<br>
+  書かなくて大丈夫。<b>ゼロの日があっても、ぜんぜん合格♡</b>
+</div>
+
+<div class="card">
+  <h2>今週やること</h2>
+  <input type="text" id="todo" class="todo" placeholder="セッションで決めたことを1つだけ">
+  <div class="row">
+    <label>はじめの日</label>
+    <input type="date" id="start">
+  </div>
+  <div class="row">
+    <label>◎が</label>
+    <input type="number" id="goal" min="1" max="7" value="3">
+    <label>個ついたら、今週は合格！</label>
+  </div>
+  <div class="hint" style="margin-top:8px;">※ 7個を目指さなくて大丈夫です。<b>低めに置くのがコツ。</b></div>
+</div>
+
+<div class="prog" id="prog">
+  <div class="dots" id="dots"></div>
+  <div class="count" id="count"></div>
+  <div class="msg" id="msg"></div>
+</div>
+
+<div class="saved" id="saved"></div>
+<div id="days"></div>
+
+<div class="goal">
+  <h2>3ヶ月後の、わたし</h2>
+  <div class="lead">記録をつけたあと、ここをちらっと見てください。</div>
+  <textarea id="goalText" placeholder="3ヶ月後、こうなっていたい（セッションで書いたことを、そのまま）"></textarea>
+  <div class="shot" id="shot"></div>
+  <input type="file" id="pickFile" accept="image/*" style="display:none">
+</div>
+
+<button class="btn" onclick="report()">報告する文をつくる</button>
+<button class="btn sub" onclick="resetWeek()">次の週にする（記録を空にする）</button>
+
+<footer>ゆるがない私を手に入れる ／ あんだんて さっちゃん</footer>
+</div>
+
+<div id="out">
+  <div class="box">
+    <h3>これをコピーして、オープンチャットに貼ってください</h3>
+    <textarea id="outText" readonly></textarea>
+    <button class="btn" onclick="copyOut()">コピーする</button>
+    <button class="btn sub" onclick="closeOut()">閉じる</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+var KEY = "yurugane-7day-v1";
+var S = { todo:"", start:"", goal:3, days:[] };
+
+function today(){
+  var d = new Date(), z = new Date(d.getTime() - d.getTimezoneOffset()*60000);
+  return z.toISOString().slice(0,10);
+}
+function load(){
+  try{
+    var raw = localStorage.getItem(KEY);
+    if(raw){ var d = JSON.parse(raw); if(d && d.days){ S = d; } }
+  }catch(e){}
+  if(!S.start) S.start = today();
+  if(!S.days || S.days.length !== 7){
+    S.days = []; for(var i=0;i<7;i++) S.days.push({on:false, memo:""});
+  }
+}
+var CAN_SAVE = true;
+function save(){
+  try{
+    localStorage.setItem(KEY, JSON.stringify(S));
+    S._at = new Date().toLocaleString("ja-JP",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});
+    localStorage.setItem(KEY+"-at", S._at);
+    showSaved();
+  }catch(e){
+    CAN_SAVE = false;
+    document.getElementById("warn").style.display = "block";
+  }
+}
+function showSaved(){
+  var el = document.getElementById("saved");
+  if(!el) return;
+  var at = "";
+  try{ at = localStorage.getItem(KEY+"-at") || ""; }catch(e){}
+  el.textContent = at ? "最後に保存：" + at : "";
+}
+function closeTip(){
+  document.getElementById("tip").style.display = "none";
+  try{ localStorage.setItem(KEY+"-tip","1"); }catch(e){}
+}
+function initTip(){
+  var seen = "";
+  try{
+    localStorage.setItem(KEY+"-probe","1");
+    localStorage.removeItem(KEY+"-probe");
+    seen = localStorage.getItem(KEY+"-tip") || "";
+  }catch(e){
+    CAN_SAVE = false;
+    document.getElementById("warn").style.display = "block";
+    return;
+  }
+  var standalone = window.navigator.standalone === true ||
+                   (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches);
+  if(!seen && !standalone) document.getElementById("tip").style.display = "block";
+}
+
+var WD = ["日","月","火","水","木","金","土"];
+function dayLabel(i){
+  var p = (S.start || today()).split("-");
+  var d = new Date(+p[0], +p[1]-1, +p[2]);
+  d.setDate(d.getDate() + i);
+  return (d.getMonth()+1) + "/" + d.getDate() + "（" + WD[d.getDay()] + "）";
+}
+
+function done(){ return S.days.filter(function(d){ return d.on; }).length; }
+
+function renderProg(){
+  var n = done(), g = Math.max(1, +S.goal || 3);
+  var dots = "";
+  for(var i=0;i<7;i++) dots += '<span class="'+(S.days[i].on?"on":"")+'">'+(S.days[i].on?"◎":"")+'</span>';
+  document.getElementById("dots").innerHTML = dots;
+  document.getElementById("count").innerHTML = "◎ <b>"+n+"</b> ／ 合格ライン "+g+"個";
+  var m = "";
+  if(n === 0)          m = "まだ0個。ここから♡";
+  else if(n < g)       m = "あと "+(g-n)+"個で合格！";
+  else if(n === g)     m = "🎉 合格しました！ もう充分です♡";
+  else                 m = "🎉 合格ライン超え！ すごい……！";
+  document.getElementById("msg").textContent = m;
+  document.getElementById("prog").classList.toggle("clear", n >= g);
+}
+
+function render(){
+  document.getElementById("todo").value  = S.todo;
+  document.getElementById("start").value = S.start;
+  document.getElementById("goal").value  = S.goal;
+
+  var h = "";
+  for(var i=0;i<7;i++){
+    var d = S.days[i];
+    h += '<div class="day'+(d.on?" done":"")+'">'
+       +   '<button class="mark'+(d.on?" on":"")+'" onclick="toggle('+i+')" aria-label="'+dayLabel(i)+' できた">'
+       +     (d.on ? "◎" : "") + '</button>'
+       +   '<div class="dinfo">'
+       +     '<div class="dlabel">'+dayLabel(i)+(d.on?"　できた！":"")+'</div>'
+       +     '<input type="text" value="'+String(d.memo).replace(/"/g,"&quot;")+'" '
+       +       'placeholder="ひとこと（書かなくてOK）" oninput="memo('+i+',this.value)">'
+       +   '</div>'
+       + '</div>';
+  }
+  document.getElementById("days").innerHTML = h;
+  renderProg();
+}
+
+function toggle(i){
+  S.days[i].on = !S.days[i].on;
+  save(); render();
+}
+function memo(i,v){ S.days[i].memo = v; save(); }
+
+document.getElementById("todo").addEventListener("input", function(){ S.todo = this.value; save(); });
+document.getElementById("start").addEventListener("change", function(){ S.start = this.value; save(); render(); });
+document.getElementById("goal").addEventListener("change", function(){ S.goal = this.value; save(); renderProg(); });
+
+/* ===== 3ヶ月後のわたし ===== */
+var IMGKEY = KEY + "-img", TXTKEY = KEY + "-goal";
+
+function loadGoal(){
+  var t = "", img = "";
+  try{ t = localStorage.getItem(TXTKEY) || ""; img = localStorage.getItem(IMGKEY) || ""; }catch(e){}
+  document.getElementById("goalText").value = t;
+  drawShot(img);
+}
+function drawShot(img){
+  var el = document.getElementById("shot");
+  if(img){
+    el.innerHTML = '<img src="'+img+'" alt="3ヶ月後のわたし">'
+      + '<div class="shotbtns"><button onclick="pickImg()">写真を変える</button>'
+      + '<button onclick="delImg()">消す</button></div>';
+  } else {
+    el.innerHTML = '<button class="pick" onclick="pickImg()">＋ 写真を選ぶ<br>'
+      + '<span style="font-size:12px">むずかしく考えないで、気持ちが上がる1枚を♡</span></button>';
+  }
+}
+function pickImg(){ document.getElementById("pickFile").click(); }
+function delImg(){
+  if(!confirm("写真を消しますか？")) return;
+  try{ localStorage.removeItem(IMGKEY); }catch(e){}
+  drawShot("");
+}
+
+document.getElementById("goalText").addEventListener("input", function(){
+  try{ localStorage.setItem(TXTKEY, this.value); showSaved(); }catch(e){}
+});
+
+document.getElementById("pickFile").addEventListener("change", function(e){
+  var f = e.target.files && e.target.files[0];
+  e.target.value = "";
+  if(!f) return;
+  var fr = new FileReader();
+  fr.onload = function(){
+    var im = new Image();
+    im.onload = function(){
+      // 縮小してから保存（スマホの写真をそのまま入れると容量が足りない）
+      var max = 1000, w = im.width, h = im.height;
+      if(w > max || h > max){ var r = Math.min(max/w, max/h); w = Math.round(w*r); h = Math.round(h*r); }
+      var cv = document.createElement("canvas");
+      cv.width = w; cv.height = h;
+      cv.getContext("2d").drawImage(im, 0, 0, w, h);
+      var q = 0.82, url = cv.toDataURL("image/jpeg", q);
+      while(url.length > 900000 && q > 0.35){ q -= 0.12; url = cv.toDataURL("image/jpeg", q); }
+      try{
+        localStorage.setItem(IMGKEY, url);
+        drawShot(url); showSaved();
+      }catch(err){
+        alert("写真が大きすぎて保存できませんでした。\nもう少し小さい写真でためしてみてください。");
+      }
+    };
+    im.onerror = function(){ alert("この写真は読み込めませんでした。ほかの1枚でためしてみてください。"); };
+    im.src = fr.result;
+  };
+  fr.onerror = function(){ alert("写真を読み込めませんでした。"); };
+  fr.readAsDataURL(f);
+});
+
+function report(){
+  var n = done(), lines = [];
+  lines.push("① やってみたこと");
+  lines.push("　" + (S.todo || "（まだ決めていません）"));
+  lines.push("");
+  lines.push("② 起きたこと");
+  lines.push("　7日のうち " + n + "日 できました");
+  var any = false;
+  for(var i=0;i<7;i++){
+    if(S.days[i].memo){ lines.push("　" + dayLabel(i) + " " + S.days[i].memo); any = true; }
+  }
+  if(!any && n === 0) lines.push("　今週はできませんでした！");
+  lines.push("");
+  lines.push("③ 聞きたいこと");
+  lines.push("　");
+  document.getElementById("outText").value = lines.join("\n");
+  document.getElementById("out").classList.add("on");
+}
+function closeOut(){ document.getElementById("out").classList.remove("on"); }
+function copyOut(){
+  var ta = document.getElementById("outText");
+  ta.removeAttribute("readonly"); ta.select(); ta.setSelectionRange(0, 99999);
+  var ok = false;
+  try{ ok = document.execCommand("copy"); }catch(e){}
+  ta.setAttribute("readonly","");
+  if(navigator.clipboard && !ok){
+    navigator.clipboard.writeText(ta.value).then(function(){ alert("コピーしました！"); });
+  } else {
+    alert(ok ? "コピーしました！" : "うまくコピーできませんでした。長押しで選んでコピーしてください。");
+  }
+}
+function resetWeek(){
+  if(!confirm("記録を空にして、次の週をはじめますか？\n（今週やること は残ります）")) return;
+  S.start = today();
+  S.days = []; for(var i=0;i<7;i++) S.days.push({on:false, memo:""});
+  save(); render();
+}
+
+load(); render(); loadGoal(); initTip(); showSaved();
+</script>
+</body>
+</html>
