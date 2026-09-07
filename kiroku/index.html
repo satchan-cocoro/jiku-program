@@ -74,6 +74,14 @@ input:focus,textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 
 #out h3{font-size:16px;color:var(--deep);}
 #out textarea{flex:1;min-height:230px;font-size:14px;line-height:1.7;}
 
+.hist{margin-top:16px;}
+.hist h2{font-size:15px;color:var(--deep);margin-bottom:8px;}
+.hrow{display:flex;align-items:center;gap:8px;padding:9px 2px;border-bottom:1px dotted var(--rule);font-size:13px;}
+.hrow:last-child{border-bottom:none;}
+.hn{flex:0 0 auto;background:var(--lt);border-radius:5px;padding:2px 7px;font-weight:700;color:var(--mid);font-size:12px;}
+.hd{flex:0 0 auto;color:var(--mid);font-size:12px;}
+.htodo{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink);}
+.hc{flex:0 0 auto;font-weight:700;color:var(--deep);font-size:15px;}
 .goal{background:#fff;border:2px solid var(--rose);border-radius:14px;
  padding:16px;margin:18px 0 14px;}
 .goal h2{font-size:15px;color:var(--deep);margin-bottom:4px;}
@@ -160,6 +168,8 @@ footer{text-align:center;font-size:12px;color:var(--mid);padding:14px 0 4px;}
 
 <button class="btn" onclick="report()">報告する文をつくる</button>
 <button class="btn sub" onclick="resetWeek()">次の週にする（記録を空にする）</button>
+
+<div class="hist card" id="hist" style="display:none"></div>
 
 <footer>ゆるがない私を手に入れる ／ あんだんて さっちゃん</footer>
 </div>
@@ -288,6 +298,25 @@ document.getElementById("todo").addEventListener("input", function(){ S.todo = t
 document.getElementById("start").addEventListener("change", function(){ S.start = this.value; save(); render(); });
 document.getElementById("goal").addEventListener("change", function(){ S.goal = this.value; save(); renderProg(); });
 
+/* ===== これまでの週 ===== */
+var HISTKEY = KEY + "-hist";
+function loadHist(){
+  try{ return JSON.parse(localStorage.getItem(HISTKEY) || "[]"); }catch(e){ return []; }
+}
+function saveHist(h){ try{ localStorage.setItem(HISTKEY, JSON.stringify(h)); }catch(e){} }
+function renderHist(){
+  var h = loadHist(), el = document.getElementById("hist");
+  if(!h.length){ el.style.display = "none"; return; }
+  el.style.display = "block";
+  el.innerHTML = '<h2>これまでの週</h2>' + h.map(function(w,i){
+    return '<div class="hrow">'
+         + '<span class="hn">'+(i+1)+'週目</span>'
+         + '<span class="hd">'+w.from+'〜'+w.to+'</span>'
+         + '<span class="htodo">'+String(w.todo||"").replace(/</g,"&lt;")+'</span>'
+         + '<span class="hc">◎'+w.n+'</span></div>';
+  }).join("");
+}
+
 /* ===== 3ヶ月後のわたし ===== */
 var IMGKEY = KEY + "-img", TXTKEY = KEY + "-goal";
 
@@ -355,7 +384,7 @@ function report(){
   lines.push("　" + (S.todo || "（まだ決めていません）"));
   lines.push("");
   lines.push("② 起きたこと");
-  lines.push("　7日のうち " + n + "日 できました");
+  lines.push("　" + (loadHist().length + 1) + "週目：7日のうち " + n + "日 できました");
   var any = false;
   for(var i=0;i<7;i++){
     if(S.days[i].memo){ lines.push("　" + dayLabel(i) + " " + S.days[i].memo); any = true; }
@@ -381,13 +410,16 @@ function copyOut(){
   }
 }
 function resetWeek(){
-  if(!confirm("記録を空にして、次の週をはじめますか？\n（今週やること は残ります）")) return;
+  if(!confirm("次の週をはじめますか？\n\n今週の結果は「これまでの週」に残ります。\nさっちゃんへの報告がまだなら、先に「報告する文をつくる」を押してくださいね。")) return;
+  var h = loadHist();
+  h.push({ from: dayLabel(0), to: dayLabel(6), todo: S.todo, n: done(), goal: S.goal });
+  saveHist(h);
   S.start = today();
   S.days = []; for(var i=0;i<7;i++) S.days.push({on:false, memo:""});
-  save(); render();
+  save(); render(); renderHist();
 }
 
-load(); render(); loadGoal(); initTip(); showSaved();
+load(); render(); loadGoal(); renderHist(); initTip(); showSaved();
 </script>
 </body>
 </html>
